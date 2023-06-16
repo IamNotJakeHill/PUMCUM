@@ -1,3 +1,3 @@
 # PUM
-Machine learning workshop
+Machine learning workshop project
 Wiktor Dublański, Jakub Michalski, Jakub Bartkowiak
