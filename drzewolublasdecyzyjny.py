@@ -74,10 +74,17 @@ plt.xlabel('Predicted Values')
 plt.ylabel('Residuals')
 plt.show()
 
-#importance = rf_regressor.coef_
-#plt.bar(X.columns, importance)
-#plt.title('Feature Importance')
-#plt.xlabel('Features')
-#plt.ylabel('Importance')
-#plt.xticks(rotation='vertical')
-#plt.show()
+importance = rf_regressor.feature_importances_
+
+feature_names = X_train.columns
+sorted_indices = np.argsort(importance)
+sorted_importance = importance[sorted_indices]
+sorted_feature_names = feature_names[sorted_indices]
+
+# Plot the feature importance
+plt.figure(figsize=(10, 6))
+plt.barh(sorted_feature_names, sorted_importance)
+plt.xlabel('Importance')
+plt.ylabel('Features')
+plt.title('Feature Importance in Random Forest Regression')
+plt.show()
